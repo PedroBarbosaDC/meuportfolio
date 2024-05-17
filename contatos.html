@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="container">
+        <h1 style="color: white; text-align: center; font-style: italic">Meu Portifolio</h1>
+        <br>
+    </header>
+    <nav class="container menu">
+        <ul>
+            <li><a href="index.html">Sobre Mim</a></li>
+            <li><a href="formacao.html">Formações e Cursos</a></li>
+            <li><a href="portfolio.html">Portfólio</a></li>
+            <li><a href="contatos.html">Contatos</a></li>
+        </ul>
+    </nav>
+
+    <div class="container principal">
+        <h2>Formulário de Contato</h2>
+
+        <form id="contactForm">
+            <label for="name">Nome:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="phone">Telefone:</label><br>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            
+            <label for="message">Mensagem:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            
+            <button type="submit">Salvar</button>
+        </form>
+
+        <div id="successMessage" style="display: none;">
+            <p>Mensagem enviada com sucesso!!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+                   setTimeout(function() {
+                document.getElementById("contactForm").reset(); // redefine os campos do formulario
+                document.getElementById("contactForm").style.display = "none"; // esconde o formulario
+                document.getElementById("successMessage").style.display = "block"; // mostra mensagem de sucesso
+                
+                // Reload the page after 2 seconds
+                setTimeout(function() {
+                    location.reload();
+                }, 1000);
+            }, 1000); // 1000 milliseconds = 1 second
+        });
+    </script>
+</body>
+</html>
